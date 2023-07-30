@@ -9,39 +9,41 @@ public class EvlutionPrefix{
         for(int i=str.length()-1;i>=0;i--){
             s += str.charAt(i);
         }
-        Stack<Integer> stack = new Stack<>();
 
-        for(int i=0;i<s.length();i++){
+        Stack<Integer> stack = new Stack<>();
+        String[] strArr = s.split(",");
+        for(int i=0;i<strArr.length;i++){
             int a=0,b=0;
-            char c = s.charAt(i);
-            switch(c){
-                case '+': a = stack.pop();
+            String ch = strArr[i];
+            switch(ch){
+                case "+": a = stack.pop();
                           b = stack.pop();
                           stack.push((a+b));
                           break;
                 
-                case '-': a = stack.pop();
+                case "-": a = stack.pop();
                           b = stack.pop();
                           stack.push((a-b));
                           break; 
 
-                case '*': a = stack.pop();
+                case "*": a = stack.pop();
                           b = stack.pop();
                           stack.push((a*b));
                           break;
                 
-                case '/': a = stack.pop();
+                case "/": a = stack.pop();
                           b = stack.pop();
                           stack.push((a/b));
                           break;
 
-                case '^': a = stack.pop();
+                case "^": 
+                case "$": a = stack.pop();
                           b = stack.pop();
                           stack.push((int)Math.pow(a,b));
                           break;
-                
-                default: stack.push(Character.getNumericValue(s.charAt(i)));
-            }   
+
+                default: stack.push((Integer.valueOf(ch)));
+            }
         }
         System.out.println(stack.pop());
     }
