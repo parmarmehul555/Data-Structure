@@ -121,19 +121,4 @@ class Infix {
                 return -1;
         }
     }
-
-    // public int associativity(char c){
-    //     switch(c){
-    //         case '+': 
-    //         case '-': 
-    //         case '*': 
-    //         case '/':
-    //                 return 1;
-                    
-    //         case '^':
-    //         case '$':
-    //                 return 2;
-    //         default: return -1;
-    //     }
-    // }
 }
